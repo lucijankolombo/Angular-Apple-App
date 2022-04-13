@@ -1,0 +1,81 @@
+<pm-navbar></pm-navbar>
+
+<div class="container" *ngIf="loading && dataService.didUserLogin">    
+    <div class="card">
+        <div class="card-body">Loading...</div>
+        <div class="progress progress-striped">
+            <div class="progress-bar"></div>                       
+          </div> 
+      </div>
+  </div>
+  
+  <div class="container">
+  <div class="alert alert-danger" *ngIf="!dataService.didUserLogin">
+    <strong>Alert!</strong> Please Sign in if you want to view data. 
+  </div>
+  </div>
+  
+  <div class="container-fluid">
+      <table class="table table-striped" *ngIf="displayTable && dataService.didUserLogin">
+          <thead class="thead-dark">
+            <button type="button" id="topBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              + Add new product
+            </button>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price - HRK</th>
+              <th scope="col">Location</th>
+              <th scope="col">Count</th>
+              <th scope="col">Delete Product</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productList">
+              <td> {{ product.name }} </td>
+              <td> {{ product.price }}</td>
+              <td> {{ product.location }}</td>
+              <td> {{ product.count }}</td>
+              <td> <button type="button" class="btn btn-primary" (click)="deleteProduct(product)">Delete</button> </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" [(ngModel)]="product.name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Price - HRK</label>
+                <input class="form-control" [(ngModel)]="product.price" name="price"  placeholder="Price" type="text" required>
+            </div>    
+            <div class="form-group">
+              <label>Location</label>
+              <input class="form-control" [(ngModel)]="product.location" name="location"  placeholder="Location" type="text" required>
+          </div>   
+          <div class="form-group">
+            <label>Count</label>
+            <input class="form-control" [(ngModel)]="product.count" name="count"  placeholder="Count" type="text" required>
+        </div>                                                  
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="!f.valid" (click)="addProduct()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

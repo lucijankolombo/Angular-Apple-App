@@ -1,0 +1,169 @@
+.first {
+    width: 100vw;
+    height: 100vh;
+    margin-left: 0;
+    text-align: center;
+    margin-top: 40px;
+    background-image: url("../home/image-01.jpg");
+    background-attachment: fixed;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
+.main-text {
+    float: left;
+    padding: 20px;
+    margin-top: 40px;
+    animation: moveUp ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+h1 {
+    font-size: 55px;
+    overflow: hidden;
+    font-weight: 800;
+}
+
+h4 {
+    font-size: 30px;
+    overflow: hidden;
+    font-weight: 700;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translate(0px,30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px,0px);
+        opacity: 1;
+    }
+  }
+
+  .second {
+      min-width: 100vw;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      text-align: center;
+  }
+
+
+  .image {
+      width: 100%;
+  }
+
+  .grid:first-child {
+      background-color: #000;
+  }
+
+h2 {
+    font-weight: 800;
+    overflow: hidden;
+    margin-top: 30px;
+    font-size: 32px;
+}
+
+  .grid:nth-child(4) {
+    background-color: #000;
+}
+
+.buttons {
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn { 
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.btn:first-child {
+    background-color: #4C4A46;
+}
+
+.btn:nth-child(2) {
+    background-color:  #FEEDD8;
+}
+
+.btn:nth-child(3) {
+    background-color: #F1F2ED;
+}
+
+.btn:nth-child(4) {
+    background-color:  #2E4755; 
+}
+
+.btn:last-child {
+    background-color: #364935
+}
+
+img {
+    width: 600px;
+    height: 600px;
+}
+
+span {
+    padding-top: 15px;
+    color: #808080;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.container-fluid {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 60vh;
+}
+
+.container {
+    height: 60vh;
+}
+
+.container h1 {
+    padding-top: 30px;
+}
+
+h5 {
+    line-height: 1.5;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+h3 {
+    font-weight: 800;
+    overflow: hidden;
+    font-size: 24px;
+}
+
+.side-text {
+    float: right;
+}
+
+.icon {
+    width: 300px;
+    height: 250px;
+}
+
+@keyframes gradient {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+h5 {
+    font-weight: 700;
+    color: #fff;
+}

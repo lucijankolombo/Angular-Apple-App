@@ -1,0 +1,64 @@
+<pm-navbar></pm-navbar>
+
+<div class="container-fluid">
+
+    <div class="card" *ngIf="login && !dataService.didUserLogin">
+        <article class="card-body">
+        <a class="float-right btn btn-primary" (click)="registerUser()" style="color: #fff;">Sign up</a>
+        <h4 class="card-title mb-4 mt-1">Sign in</h4>
+             <form #f="ngForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input [(ngModel)]="username" name="username" class="form-control" placeholder="Username" type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" [(ngModel)]="password" name="password" placeholder="******" type="password" required>
+            </div>
+            <div class="form-group"> 
+            <div class="checkbox">
+              <label> <input type="checkbox"> Save password </label>
+            </div>
+            </div> 
+            <div class="form-group" style="text-align: center;">
+                <button type="submit" class="btn btn-primary btn-block" style="width: 30%;" [disabled]="!f.valid"
+                 (click)="navigate()"
+                > Login  </button>
+            </div>                                                     
+        </form>
+        </article>
+        </div>
+    
+        <div class="card" *ngIf="register && !dataService.didUserLogin" style="margin-top: 30px;">
+            <article class="card-body">
+            <a class="float-right btn btn-primary" (click)="loginUser()" style="color: #fff;">Sign In</a>
+            <h4 class="card-title mb-4 mt-1">Sign Up</h4>
+                 <form #f="ngForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input required [(ngModel)]="firstLastName"  name="firstLastName" class="form-control" placeholder="First and last name" type="firstname">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input required [(ngModel)]="username" name="username" class="form-control" placeholder="Username" type="username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input required [(ngModel)]="password" class="form-control" name="password" placeholder="******" type="password">
+                </div>
+                <div class="checkbox">
+                    <label> <input type="checkbox"> Save password </label>
+                  </div> 
+                <div class="form-group" style="text-align: center;">
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 45%; margin: 5px;" [disabled]="!f.valid"
+                    (click)="navigate()"
+                    >  Create Account  </button>
+                </div>                                                    
+            </form>
+            </article>
+            </div>
+    
+            <div class="alert alert-danger" *ngIf="dataService.didUserLogin">
+                <strong>Alert!</strong> You are already signed in! Please log out. 
+              </div>
+    </div>

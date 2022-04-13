@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+    <a [routerLink]="['/login']" routerLinkActive="active">Sign in</a>
+    <a [routerLink]="['/list']" routerLinkActive="active">List</a>
+    <a class="userMsg" *ngIf="!dataService.didUserLogin">Unknown User</a>
+    <a class="userMsg" *ngIf="dataService.didUserLogin">{{ dataService.userName }}</a>
+    <a class="logout" *ngIf="dataService.didUserLogin" (click)="logout()"> 
+      <i class="bi bi-box-arrow-right"></i>
+    </a>
+  </nav>
